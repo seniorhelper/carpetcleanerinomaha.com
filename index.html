@@ -43,7 +43,7 @@
 
 <link rel="icon" href="/images/omaha-carpet-cleaning-favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="/images/omaha-carpet-cleaning-favicon.png">
-<meta name="theme-color" content="#07131F">
+<meta name="theme-color" content="#FFFFFF">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -465,7 +465,7 @@ strong{font-weight:600;color:var(--white)}
 .skip{position:absolute;left:-9999px;top:0;z-index:999;background:var(--mist);color:var(--ink);padding:12px 18px;font-weight:700}
 .skip:focus{left:8px;top:8px}
 
-section[id]{scroll-margin-top:86px}
+section[id]{scroll-margin-top:138px}
 .wrap{width:min(var(--wrap),91vw);margin-inline:auto;position:relative;z-index:2}
 .wrap--tight{width:min(940px,91vw)}
 
@@ -509,33 +509,36 @@ h3{font-size:clamp(20px,2.2vw,27px)}
 /* ---------- header ---------- */
 .hdr{
   position:sticky;top:0;z-index:80;
-  background:rgba(7,19,31,.86);backdrop-filter:blur(14px);
-  border-bottom:1px solid rgba(111,227,255,.16);
+  background:rgba(255,255,255,.95);backdrop-filter:blur(14px);
+  border-bottom:1px solid #DCE4EB;transition:box-shadow .3s;
 }
-.hdr-in{display:flex;align-items:center;gap:20px;height:74px}
+.hdr.stuck{box-shadow:0 8px 30px rgba(7,19,31,.13)}
+.prog{position:absolute;left:0;bottom:-1px;height:3px;width:0;z-index:6;
+  background:linear-gradient(90deg,var(--blue),var(--flare));transition:width .12s linear}
+.hdr-in{display:flex;align-items:center;gap:20px;height:126px}
 .brand{display:flex;align-items:center;flex:none}
-.brand img{height:44px;width:auto}
+.brand img{width:300px;height:102px;object-fit:contain}
 .nav{display:flex;gap:26px;margin-left:auto;align-items:center}
 .nav a{
   font-family:var(--mono);font-size:12.5px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;
-  text-decoration:none;color:var(--paper);padding:6px 0;position:relative;white-space:nowrap
+  text-decoration:none;color:#0F1E2B;padding:6px 0;position:relative;white-space:nowrap
 }
-.nav a::after{content:'';position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--mist);transition:width .28s}
+.nav a::after{content:'';position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--flare);transition:width .28s}
 .nav a:hover::after,.nav a:focus-visible::after{width:100%}
 .hdr-right{display:flex;flex:none;margin-left:8px}
 .burger{
-  display:none;margin-left:auto;width:46px;height:40px;background:none;border:1px solid rgba(143,166,186,.4);
-  color:var(--paper);align-items:center;justify-content:center;cursor:pointer;flex-direction:column;gap:5px
+  display:none;margin-left:auto;width:46px;height:40px;background:none;border:1px solid #C6D3DD;
+  color:var(--ink);align-items:center;justify-content:center;cursor:pointer;flex-direction:column;gap:5px
 }
 .burger span{display:block;width:20px;height:2px;background:currentColor;transition:.25s}
 .burger[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
 .burger[aria-expanded="true"] span:nth-child(2){opacity:0}
 .burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-.mnav{display:none;border-top:1px solid var(--line);background:var(--ink-2)}
+.mnav{display:none;border-top:1px solid #DCE4EB;background:#fff}
 .mnav.open{display:block}
 .mnav a{
-  display:block;padding:15px 0;border-bottom:1px solid rgba(143,166,186,.15);text-decoration:none;
-  font-family:var(--mono);font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--paper)
+  display:block;padding:15px 0;border-bottom:1px solid #E5EBF0;text-decoration:none;
+  font-family:var(--mono);font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink)
 }
 .mnav .btn{margin:18px 0 22px;width:100%}
 
@@ -574,7 +577,7 @@ h3{font-size:clamp(20px,2.2vw,27px)}
   -webkit-mask-image:linear-gradient(180deg,transparent,#000 40%,transparent);
   mask-image:linear-gradient(180deg,transparent,#000 40%,transparent);
 }
-.hero-in{position:relative;z-index:3;padding:130px 0 0;width:min(var(--wrap),91vw);margin-inline:auto}
+.hero-in{position:relative;z-index:3;padding:172px 0 0;width:min(var(--wrap),91vw);margin-inline:auto}
 .hero-tag{
   font-family:var(--mono);font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--mist);
   display:inline-flex;align-items:center;gap:12px;border:1px solid rgba(111,227,255,.35);
@@ -626,14 +629,15 @@ h3{font-size:clamp(20px,2.2vw,27px)}
 .g3{grid-template-columns:repeat(3,1fr)}
 .g4{grid-template-columns:repeat(4,1fr)}
 .cell{background:var(--paper);padding:34px 30px;position:relative;transition:background .3s}
-.band--ink .cell,.band--slate .cell{background:var(--ink)}
+.band--ink .cell,.band--slate .cell,.skew .cell{background:var(--ink)}
+.skew .cell h3{color:#fff}
 .cell::before{content:'';position:absolute;left:0;top:0;height:3px;width:0;background:var(--flare);transition:width .38s}
 .cell:hover::before{width:100%}
 .cell h3{font-size:20px;text-transform:uppercase;letter-spacing:-.01em;margin-bottom:12px}
 .cell p{font-size:15.5px;line-height:1.66;margin:0}
 .cell .kw{font-family:var(--mono);font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--blue-d);margin-bottom:14px;display:block}
-.band--ink .cell .kw,.band--slate .cell .kw{color:var(--mist)}
-.band--ink .cell p,.band--slate .cell p{color:#A8BCCD}
+.band--ink .cell .kw,.band--slate .cell .kw,.skew .cell .kw{color:var(--mist)}
+.band--ink .cell p,.band--slate .cell p,.skew .cell p{color:#A8BCCD}
 
 /* ---------- split (image + copy) ---------- */
 .split{display:grid;grid-template-columns:1.02fr .98fr;gap:0;align-items:stretch}
@@ -801,22 +805,36 @@ input::placeholder,textarea::placeholder{color:#5F7789}
 .src li::before{content:'';position:absolute;left:0;top:9px;width:9px;height:1px;background:var(--flare)}
 
 /* ---------- footer ---------- */
-.ftr{background:#040C14;border-top:1px solid var(--line);padding:66px 0 34px}
+.ftr{background:#fff;border-top:1px solid #DCE4EB;padding:66px 0 34px}
 .ftr-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:38px}
-.ftr img{height:48px;width:auto;margin-bottom:20px}
-.ftr h4{font-family:var(--mono);font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--mist);margin:0 0 18px;font-weight:600}
+.ftr img{width:260px;height:88px;object-fit:contain;margin-bottom:20px}
+.ftr h4{font-family:var(--mono);font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--blue-d);margin:0 0 18px;font-weight:600}
 .ftr ul{list-style:none;padding:0;margin:0}
-.ftr li{margin-bottom:10px;font-size:14.5px;color:#8FA6BA}
-.ftr a{color:#8FA6BA;text-decoration:none;transition:color .2s}
-.ftr a:hover{color:var(--mist)}
-.ftr p{font-size:14.5px;color:#8FA6BA;line-height:1.65}
-.ftr-btm{margin-top:48px;padding-top:24px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;color:#5F7789;text-transform:uppercase}
+.ftr li{margin-bottom:10px;font-size:14.5px;color:#4A5C6B}
+.ftr a{color:#41525F;text-decoration:none;transition:color .2s}
+.ftr a:hover{color:var(--blue-d)}
+.ftr p{font-size:14.5px;color:#4A5C6B;line-height:1.65}
+.ftr-btm{margin-top:48px;padding-top:24px;border-top:1px solid #E5EBF0;display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;color:#7A8A97;text-transform:uppercase}
 
 /* ---------- reveal ---------- */
 .rv{opacity:0;transform:translateY(20px)}
+/* staggered cascade for grouped children */
+.stagger>*{opacity:0;transform:translateY(18px)}
+.stagger.in>*{opacity:1;transform:none;
+  transition:opacity .62s cubic-bezier(.2,.7,.2,1),transform .62s cubic-bezier(.2,.7,.2,1)}
+.cell{transition:background .3s,transform .34s cubic-bezier(.2,.7,.2,1),box-shadow .34s}
+.cell:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(0,0,0,.28);z-index:2}
+.band--paper .cell:hover{box-shadow:0 18px 40px rgba(20,35,47,.16)}
+.season{transition:transform .34s cubic-bezier(.2,.7,.2,1)}
+.season:hover{transform:translateY(-4px)}
+/* readout digits settle when they change */
+@keyframes tick{from{opacity:.45;transform:translateY(-3px)}to{opacity:1;transform:none}}
+.readout-cell .v.bump{animation:tick .34s ease-out}
 .rv.in{opacity:1;transform:none;transition:opacity .75s cubic-bezier(.2,.7,.2,1),transform .75s cubic-bezier(.2,.7,.2,1)}
 @media(prefers-reduced-motion:reduce){
   .rv{opacity:1;transform:none;transition:none}
+  .stagger>*{opacity:1;transform:none;transition:none}
+  .prog{display:none}
   .ticker{animation:none}
   .sheen::after{display:none}
   .hero-tag i{animation:none}
@@ -842,6 +860,10 @@ input::placeholder,textarea::placeholder{color:#5F7789}
   .nav{display:none}
   .hdr-right{display:none}
   .burger{display:flex}
+  .hdr-in{height:92px}
+  .brand img{width:236px;height:80px}
+  section[id]{scroll-margin-top:100px}
+  .hero-in{padding-top:120px}
   body{font-size:16px}
   .g2,.g3,.g4{grid-template-columns:1fr}
   .checks{grid-template-columns:1fr}
@@ -857,6 +879,10 @@ input::placeholder,textarea::placeholder{color:#5F7789}
   .hero-cta .btn{flex:1 1 100%}
 }
 @media(max-width:480px){
+  .hdr-in{height:80px}
+  .brand img{width:196px;height:67px}
+  .ftr img{width:220px;height:75px}
+  section[id]{scroll-margin-top:88px}
   .stats{grid-template-columns:1fr}
   .cell{padding:26px 22px}
 }
@@ -864,7 +890,8 @@ input::placeholder,textarea::placeholder{color:#5F7789}
 </head>
 <body>
 <a class="skip" href="#main">Skip to main content</a>
-<header class="hdr">
+<header class="hdr" id="hdr">
+  <div class="prog" id="prog" aria-hidden="true"></div>
   <div class="wrap hdr-in">
     <a class="brand" href="/" aria-label="Carpet Cleaner In Omaha home">
       <img src="/images/carpet-cleaner-in-omaha-logo.png" alt="Carpet Cleaner In Omaha logo" width="300" height="102">
@@ -2030,16 +2057,50 @@ input::placeholder,textarea::placeholder{color:#5F7789}
 
   /* ---------- scroll reveal ---------- */
   var rv = document.querySelectorAll('.rv');
+
+  /* groups whose children cascade in one after another */
+  var groups = document.querySelectorAll('.grid, .seasons, .steps, .areas, .checks, .stats');
+  for(var g=0; g<groups.length; g++){
+    groups[g].classList.add('stagger');
+    var kids = groups[g].children;
+    for(var kk=0; kk<kids.length; kk++){
+      kids[kk].style.transitionDelay = Math.min(kk*70, 560) + 'ms';
+    }
+  }
+
+  function reveal(node){
+    node.classList.add('in');
+    if(node.classList.contains('stagger')) return;
+    var inner = node.querySelectorAll('.stagger');
+    for(var n=0;n<inner.length;n++){ inner[n].classList.add('in'); }
+  }
+
   if(reduce || !('IntersectionObserver' in window)){
     for(var i=0;i<rv.length;i++){ rv[i].classList.add('in'); }
+    for(var i2=0;i2<groups.length;i2++){ groups[i2].classList.add('in'); groups[i2].style.transitionDelay=''; }
   } else {
     var io = new IntersectionObserver(function(entries){
       entries.forEach(function(en){
-        if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+        if(en.isIntersecting){ reveal(en.target); io.unobserve(en.target); }
       });
     }, {rootMargin:'0px 0px -8% 0px', threshold:0.08});
     for(var j=0;j<rv.length;j++){ io.observe(rv[j]); }
+    for(var j2=0;j2<groups.length;j2++){ io.observe(groups[j2]); }
   }
+
+  /* scroll progress bar + sticky header shadow */
+  var prog = document.getElementById('prog'), hdrEl = document.getElementById('hdr'), ticking = false;
+  function onScroll(){
+    var st = window.pageYOffset || document.documentElement.scrollTop;
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    if(prog && !reduce){ prog.style.width = (max > 0 ? (st/max)*100 : 0) + '%'; }
+    if(hdrEl){ hdrEl.classList.toggle('stuck', st > 12); }
+    ticking = false;
+  }
+  window.addEventListener('scroll', function(){
+    if(!ticking){ ticking = true; window.requestAnimationFrame(onScroll); }
+  }, {passive:true});
+  onScroll();
 
   /* ---------- hero video + ticker ---------- */
   var vid = document.getElementById('heroVid');
@@ -2066,6 +2127,34 @@ input::placeholder,textarea::placeholder{color:#5F7789}
       addSofa=el('addSofa'), addMovers=el('addMovers');
 
   function money(n){ return '$' + Math.round(n/5)*5; }
+
+  /* count-up tween so the readout rolls to its new value instead of snapping */
+  var curLo = 0, curHi = 0, tweenId = null;
+  function renderPrice(lo, hi){
+    var out = el('priceOut');
+    if(!out) return;
+    if(reduce || !window.requestAnimationFrame){
+      out.innerHTML = money(lo) + ' <small>–</small> ' + money(hi);
+      curLo = lo; curHi = hi; return;
+    }
+    var sLo = curLo, sHi = curHi, t0 = null, dur = 420;
+    if(tweenId){ cancelAnimationFrame(tweenId); }
+    function step(now){
+      if(t0 === null){ t0 = now; }
+      var p = Math.min(1, (now - t0) / dur);
+      var e = 1 - Math.pow(1 - p, 3);
+      out.innerHTML = money(sLo + (lo - sLo) * e) + ' <small>–</small> ' + money(sHi + (hi - sHi) * e);
+      if(p < 1){ tweenId = requestAnimationFrame(step); }
+      else { curLo = lo; curHi = hi; tweenId = null; }
+    }
+    tweenId = requestAnimationFrame(step);
+  }
+  function bump(node){
+    if(!node || reduce) return;
+    node.classList.remove('bump');
+    void node.offsetWidth;
+    node.classList.add('bump');
+  }
 
   function calc(){
     if(!rooms) return;
@@ -2100,9 +2189,11 @@ input::placeholder,textarea::placeholder{color:#5F7789}
     el('roomsV').textContent  = r;
     el('stairsV').textContent = st;
     el('rugsV').textContent   = rg;
-    el('priceOut').innerHTML  = money(lo) + ' <small>–</small> ' + money(hi);
-    el('timeOut').textContent = h + 'h ' + (m<10?'0':'') + m + 'm';
-    el('dryOut').textContent  = dry;
+    renderPrice(lo, hi);
+    var tEl = el('timeOut'), dEl = el('dryOut');
+    var newTime = h + 'h ' + (m<10?'0':'') + m + 'm';
+    if(tEl.textContent !== newTime){ tEl.textContent = newTime; bump(tEl); }
+    if(dEl.textContent !== dry){ dEl.textContent = dry; bump(dEl); }
     el('minNote').textContent = minApplied
       ? 'Job minimum applied — add a room or stairs and the per-room value improves'
       : 'Above the $110–$150 job minimum';
